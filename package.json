@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-sort-imports-requires",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "An ESLint plugin to sort both import and require declarations in a unified manner.",
   "keywords": [
     "eslint",
@@ -32,7 +32,9 @@
     "lint-staged"
   ],
   "lint-staged": {
-    "*.js": ["uphold-scripts lint"]
+    "*.js": [
+      "uphold-scripts lint"
+    ]
   },
   "engines": {
     "node": "14.x || >= 16"
