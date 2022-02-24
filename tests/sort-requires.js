@@ -73,6 +73,46 @@ ruleTester.run('sort', rule, {
         }
       ]
     },
+    {
+      // Case require('foo').foo and const { x } = require('foo').foo
+      code: `
+        const { x } = require('foo').foo;
+        require('foo').foo.bar;
+      `,
+      errors: [
+        {
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
+          type: 'ExpressionStatement'
+        }
+      ]
+    },
+    {
+      // Case require('foo')('foo') and const { x } = require('foo')('foo')
+      code: `
+        const { x } = require('foo')('foo').bar;
+        require('foo')('foo').bar;
+      `,
+      errors: [
+        {
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
+          type: 'ExpressionStatement'
+        }
+      ]
+    },
+    {
+      // Case with nested destructuring..
+      code: `
+        const { foo } = require('foo');
+        const { bar: { ZZ } } = require('bar');
+        const { baz } = require('baz');
+      `,
+      errors: [
+        {
+          message: "Expected require declaration of 'bar' to be placed before 'foo'.",
+          type: 'VariableDeclaration'
+        }
+      ]
+    },
     // Declaration sort - default options with `unsafeAutofix`
     {
       code: `
