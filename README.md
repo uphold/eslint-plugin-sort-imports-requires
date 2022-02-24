@@ -61,7 +61,7 @@ Then configure the rules you want to use under the rules section.
 These are the only supported rules and can be configured independently. Both have exactly the same options as ESLint's [`sort-imports`](https://eslint.org/docs/rules/sort-imports) rule, with a few more options:
 
 - `unsafeAutofix` (default: `false`)
-- `useAliases` (default: `false`)
+- `useAliases` (default: `true`)
 - `useOldSingleMemberSyntax` (default: `false`)
 
 #### `unsafeAutofix`
