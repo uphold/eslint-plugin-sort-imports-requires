@@ -154,6 +154,29 @@ ruleTester.run('sort', rule, {
         const c = require('foo');
       `
     },
+    // Special case in which unassigned requires shouldn't have their order changed after autofixing.
+    {
+      code: `
+        require('a');
+        require('b');
+        require('c');
+
+        const b = require('foo');
+        const a = require('foo');
+      `,
+      errors: [
+        { message: "Expected require declaration of 'a' to be placed before 'b'.", type: 'VariableDeclaration' }
+      ],
+      options: [{ unsafeAutofix: true }],
+      output: `
+        require('a');
+        require('b');
+        require('c');
+
+        const a = require('foo');
+        const b = require('foo');
+      `
+    },
     // Declaration sort - `ignoreCase` option.
     {
       code: `
