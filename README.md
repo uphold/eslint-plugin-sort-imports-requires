@@ -91,7 +91,7 @@ If `useAliases` is enabled, `bar` is used when sorting. If it was disabled, `foo
 
 Whether to restore the old ESLint behavior where `multiple` type corresponds to all named imports (regardless of how many are imported), while the `single` type corresponds only to default imports.
 
-# License
+## License
 
 [MIT](https://opensource.org/licenses/MIT)
 
