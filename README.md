@@ -13,45 +13,43 @@ ESLint's [`sort-imports`](https://eslint.org/docs/rules/sort-imports) only works
 
 This plugin is a drop-in replacement to `sort-imports` with a few extra features:
 
-- Provides autofix for potentially unsafe situations (see [`unsafeAutofix`](#unsafeAutofix)).
-- Allows sorting by aliases. (see [`useAliases`](#useAliases)).
-- Allows restoring the old ESLint behavior where `multiple` type corresponds to all named imports, regardless of how many are imported (see [`useOldSingleMemberSyntax`](#useOldSingleMemberSyntax)).
+- Provides autofix for potentially unsafe situations (see [`unsafeAutofix`](#unsafeautofix)).
+- Allows sorting by aliases. (see [`useAliases`](#usealiases)).
+- Allows restoring the old ESLint behavior where `multiple` type corresponds to all named imports, regardless of how many are imported (see [`useOldSingleMemberSyntax`](#useoldsinglemembersyntax)).
 
 ## Installation
 
 You'll first need to install [ESLint](https://eslint.org/):
 
 ```sh
-❯ npm i eslint --save-dev
+npm install eslint --save-dev
 ```
 
 Next, install `eslint-plugin-sort-imports-requires`:
 
 ```sh
-❯ npm install eslint-plugin-sort-imports-requires --save-dev
+npm install eslint-plugin-sort-imports-requires --save-dev
 ```
 
 ## Usage
 
-Add `sort-imports-requires` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `sort-imports-requires` to the plugins section of your ESLint configuration file and configure its rules. Here's an example:
 
-```json
-{
-  "plugins": [
-    "sort-imports-requires"
-  ]
-}
-```
+```js
+// eslint.config.js
+import sortImportRequires from 'eslint-plugin-sort-imports-requires';
 
-Then configure the rules you want to use under the rules section.
-
-```json
-{
-  "rules": {
-    "sort-imports-requires/sort-imports": "error",
-    "sort-imports-requires/sort-requires": "error"
+export default [
+  {
+    plugins: {
+      'sort-imports-requires': sortImportRequires
+    },
+    rules: {
+      'sort-imports-requires/sort-imports': ['error', { unsafeAutofix: true }],
+      'sort-imports-requires/sort-requires': ['error', { unsafeAutofix: true }]
+    }
   }
-}
+];
 ```
 
 ## Supported Rules
@@ -94,6 +92,26 @@ Whether to restore the old ESLint behavior where `multiple` type corresponds to 
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
+
+## Contributing
+
+### Development
+
+Install dependencies:
+
+```bash
+npm i
+```
+
+Run tests:
+
+```bash
+npm run test
+```
+
+### Cutting a release
+
+The release process is automated via the [release](https://github.com/uphold/eslint-plugin-sort-imports-requires/actions/workflows/release.yaml) GitHub workflow. Run it by clicking the "Run workflow" button.
 
 [npm-image]: https://img.shields.io/npm/v/eslint-plugin-sort-imports-requires.svg
 [npm-url]: https://www.npmjs.com/package/eslint-plugin-sort-imports-requires

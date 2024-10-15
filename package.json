@@ -14,34 +14,34 @@
   ],
   "author": "Uphold",
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "repository": "github:uphold/eslint-plugin-sort-imports-requires",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "changelog": "uphold-scripts changelog $npm_package_version",
-    "lint": "uphold-scripts lint",
-    "lint-staged": "lint-staged -q",
-    "release": "uphold-scripts release",
-    "test": "mocha tests --recursive",
-    "version": "uphold-scripts version"
+    "lint": "eslint .",
+    "release": "release-it",
+    "test": "mocha tests --recursive"
   },
   "devDependencies": {
-    "eslint": "~8.7.0",
-    "mocha": "^9.2.0",
-    "prettier": "^2.5.1",
-    "uphold-scripts": "^0.6.0"
-  },
-  "pre-commit": [
-    "lint-staged"
-  ],
-  "lint-staged": {
-    "*.js": [
-      "uphold-scripts lint"
-    ]
+    "@eslint/js": "^9.12.0",
+    "@uphold/github-changelog-generator": "^3.4.0",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.11.0",
+    "mocha": "^10.7.3",
+    "prettier": "^3.3.3",
+    "release-it": "^17.9.0"
   },
   "engines": {
-    "node": "14.x || >= 16"
+    "node": ">= 20"
   },
   "peerDependencies": {
-    "eslint": ">=8"
+    "eslint": ">=9"
   },
   "license": "MIT",
   "dependencies": {

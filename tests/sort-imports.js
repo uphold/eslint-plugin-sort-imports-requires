@@ -1,8 +1,8 @@
-const rule = require('../lib').rules['sort-imports'];
 const { RuleTester } = require('eslint');
+const rule = require('../lib').rules['sort-imports'];
 
 const ruleTester = new RuleTester({
-  parserOptions: {
+  languageOptions: {
     ecmaVersion: 2020,
     sourceType: 'module'
   }
