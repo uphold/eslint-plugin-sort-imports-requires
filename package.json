@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-sort-imports-requires",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "An ESLint plugin to sort both import and require declarations in a unified manner.",
   "keywords": [
     "eslint",
