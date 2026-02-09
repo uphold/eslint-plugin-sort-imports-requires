@@ -16,14 +16,14 @@ ruleTester.run('sort', rule, {
         const A = require('foo');
         const c = require('foo');
       `,
-      errors: [{ message: "Expected require declaration of 'A' to be placed before 'a'.", type: 'VariableDeclaration' }]
+      errors: [{ message: "Expected require declaration of 'A' to be placed before 'a'." }]
     },
     {
       code: `
         const b = require('foo');
         const a = require('foo');
       `,
-      errors: [{ message: "Expected require declaration of 'a' to be placed before 'b'.", type: 'VariableDeclaration' }]
+      errors: [{ message: "Expected require declaration of 'a' to be placed before 'b'." }]
     },
     {
       code: `
@@ -32,8 +32,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -44,8 +43,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -56,8 +54,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -68,8 +65,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -81,8 +77,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -94,8 +89,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -108,8 +102,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'bar' to be placed before 'foo'.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'bar' to be placed before 'foo'."
         }
       ]
     },
@@ -124,8 +117,8 @@ ruleTester.run('sort', rule, {
         const { ...Z } = require('foo');
       `,
       errors: [
-        { message: "Expected require declaration of 'c' to be placed before 'd'.", type: 'VariableDeclaration' },
-        { message: "Expected require declaration of 'A' to be placed before 'b'.", type: 'VariableDeclaration' }
+        { message: "Expected require declaration of 'c' to be placed before 'd'." },
+        { message: "Expected require declaration of 'A' to be placed before 'b'." }
       ],
       options: [{ unsafeAutofix: true }],
       output: `
@@ -144,9 +137,7 @@ ruleTester.run('sort', rule, {
         const b = 'foo';
         const a = require('foo');
       `,
-      errors: [
-        { message: "Expected require declaration of 'a' to be placed before 'c'.", type: 'VariableDeclaration' }
-      ],
+      errors: [{ message: "Expected require declaration of 'a' to be placed before 'c'." }],
       options: [{ unsafeAutofix: true }],
       output: `
         const a = require('foo');
@@ -164,9 +155,7 @@ ruleTester.run('sort', rule, {
         const b = require('foo');
         const a = require('foo');
       `,
-      errors: [
-        { message: "Expected require declaration of 'a' to be placed before 'b'.", type: 'VariableDeclaration' }
-      ],
+      errors: [{ message: "Expected require declaration of 'a' to be placed before 'b'." }],
       options: [{ unsafeAutofix: true }],
       output: `
         require('a');
@@ -189,10 +178,10 @@ ruleTester.run('sort', rule, {
         const d = require('foo');
       `,
       errors: [
-        { message: "Expected require declaration of 'e' to be placed before 'G'.", type: 'VariableDeclaration' },
-        { message: "Expected require declaration of 'B' to be placed before 'C'.", type: 'VariableDeclaration' },
-        { message: "Expected require declaration of 'a' to be placed before 'B'.", type: 'VariableDeclaration' },
-        { message: "Expected require declaration of 'd' to be placed before 'Z'.", type: 'VariableDeclaration' }
+        { message: "Expected require declaration of 'e' to be placed before 'G'." },
+        { message: "Expected require declaration of 'B' to be placed before 'C'." },
+        { message: "Expected require declaration of 'a' to be placed before 'B'." },
+        { message: "Expected require declaration of 'd' to be placed before 'Z'." }
       ],
       options: [{ ignoreCase: true }]
     },
@@ -208,10 +197,10 @@ ruleTester.run('sort', rule, {
         const d = require('foo');
       `,
       errors: [
-        { message: "Expected require declaration of 'e' to be placed before 'G'.", type: 'VariableDeclaration' },
-        { message: "Expected require declaration of 'B' to be placed before 'C'.", type: 'VariableDeclaration' },
-        { message: "Expected require declaration of 'a' to be placed before 'B'.", type: 'VariableDeclaration' },
-        { message: "Expected require declaration of 'd' to be placed before 'Z'.", type: 'VariableDeclaration' }
+        { message: "Expected require declaration of 'e' to be placed before 'G'." },
+        { message: "Expected require declaration of 'B' to be placed before 'C'." },
+        { message: "Expected require declaration of 'a' to be placed before 'B'." },
+        { message: "Expected require declaration of 'd' to be placed before 'Z'." }
       ],
       options: [{ ignoreCase: true, unsafeAutofix: true }],
       output: `
@@ -232,8 +221,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ useOldSingleMemberSyntax: true }]
@@ -245,8 +233,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ useOldSingleMemberSyntax: true }]
@@ -259,8 +246,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ unsafeAutofix: true, useOldSingleMemberSyntax: true }],
@@ -276,8 +262,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ unsafeAutofix: true, useOldSingleMemberSyntax: true }],
@@ -295,8 +280,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'a' to be placed before 'c'.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -309,8 +293,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'a' to be placed before 'c'.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -322,8 +305,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'a' to be placed before 'c'.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -335,8 +317,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'a' to be placed before 'c'.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -352,8 +333,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'a' to be placed before 'c'.",
-          type: 'VariableDeclaration'
+          message: "Expected require declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }],
@@ -395,32 +375,25 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ExpressionStatement'
+          message: "Expected require declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ allowSeparatedGroups: true, unsafeAutofix: true }],
@@ -459,9 +432,9 @@ ruleTester.run('sort', rule, {
         const { y: z, z: y } = require('foo');
       `,
       errors: [
-        { message: "Member 'A' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'B' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'y' of the require declaration should be sorted alphabetically.", type: 'Property' }
+        { message: "Member 'A' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'B' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'y' of the require declaration should be sorted alphabetically." }
       ],
       output: `
         const { A, a } = require('foo');
@@ -497,11 +470,11 @@ ruleTester.run('sort', rule, {
         } = require('foo');
       `,
       errors: [
-        { message: "Member 'A' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'B' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'C' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'D' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'E' of the require declaration should be sorted alphabetically.", type: 'Property' }
+        { message: "Member 'A' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'B' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'C' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'D' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'E' of the require declaration should be sorted alphabetically." }
       ]
     },
     {
@@ -509,7 +482,7 @@ ruleTester.run('sort', rule, {
       code: `
         const { [getFoo()]: b, a } = require('foo');
       `,
-      errors: [{ message: "Member 'a' of the require declaration should be sorted alphabetically.", type: 'Property' }]
+      errors: [{ message: "Member 'a' of the require declaration should be sorted alphabetically." }]
     },
     // Member sort order - `ignoreCase` option.
     {
@@ -519,9 +492,9 @@ ruleTester.run('sort', rule, {
         const { D: e, e: D } = require('foo');
       `,
       errors: [
-        { message: "Member 'a' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'C' of the require declaration should be sorted alphabetically.", type: 'Property' },
-        { message: "Member 'D' of the require declaration should be sorted alphabetically.", type: 'Property' }
+        { message: "Member 'a' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'C' of the require declaration should be sorted alphabetically." },
+        { message: "Member 'D' of the require declaration should be sorted alphabetically." }
       ],
       options: [{ ignoreCase: true }],
       output: `
@@ -535,7 +508,7 @@ ruleTester.run('sort', rule, {
       code: `
         const { e: D, D: e } = require('foo');
       `,
-      errors: [{ message: "Member 'D' of the require declaration should be sorted alphabetically.", type: 'Property' }],
+      errors: [{ message: "Member 'D' of the require declaration should be sorted alphabetically." }],
       options: [{ useAliases: false }],
       output: `
         const { D: e, e: D } = require('foo');
@@ -546,7 +519,7 @@ ruleTester.run('sort', rule, {
       code: `
         const { b, [getFoo()]: a } = require('foo');
       `,
-      errors: [{ message: "Member 'a' of the require declaration should be sorted alphabetically.", type: 'Property' }],
+      errors: [{ message: "Member 'a' of the require declaration should be sorted alphabetically." }],
       options: [{ useAliases: false }]
     },
     // Member sort order - `unsafeFix` option.
@@ -554,7 +527,7 @@ ruleTester.run('sort', rule, {
       code: `
         const { [getFoo()]: b, a } = require('foo');
       `,
-      errors: [{ message: "Member 'a' of the require declaration should be sorted alphabetically.", type: 'Property' }],
+      errors: [{ message: "Member 'a' of the require declaration should be sorted alphabetically." }],
       options: [{ unsafeAutofix: true }],
       output: `
         const { a, [getFoo()]: b } = require('foo');
