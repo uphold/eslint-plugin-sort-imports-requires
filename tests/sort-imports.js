@@ -17,14 +17,14 @@ ruleTester.run('sort', rule, {
         import A from 'foo';
         import c from 'foo';
       `,
-      errors: [{ message: "Expected import declaration of 'A' to be placed before 'a'.", type: 'ImportDeclaration' }]
+      errors: [{ message: "Expected import declaration of 'A' to be placed before 'a'." }]
     },
     {
       code: `
         import b from 'foo';
         import a from 'foo';
       `,
-      errors: [{ message: "Expected import declaration of 'a' to be placed before 'b'.", type: 'ImportDeclaration' }]
+      errors: [{ message: "Expected import declaration of 'a' to be placed before 'b'." }]
     },
     {
       code: `
@@ -33,8 +33,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -45,8 +44,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'all' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'all' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -57,8 +55,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -69,8 +66,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ]
     },
@@ -85,11 +81,10 @@ ruleTester.run('sort', rule, {
         import * as g from 'foo';
       `,
       errors: [
-        { message: "Expected import declaration of 'c' to be placed before 'd'.", type: 'ImportDeclaration' },
-        { message: "Expected import declaration of 'A' to be placed before 'b'.", type: 'ImportDeclaration' },
+        { message: "Expected import declaration of 'c' to be placed before 'd'." },
+        { message: "Expected import declaration of 'A' to be placed before 'b'." },
         {
-          message: "Expected import declaration of 'all' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'all' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ unsafeAutofix: true }],
@@ -113,9 +108,9 @@ ruleTester.run('sort', rule, {
         import d from 'foo';
       `,
       errors: [
-        { message: "Expected import declaration of 'e' to be placed before 'G'.", type: 'ImportDeclaration' },
-        { message: "Expected import declaration of 'B' to be placed before 'C'.", type: 'ImportDeclaration' },
-        { message: "Expected import declaration of 'a' to be placed before 'B'.", type: 'ImportDeclaration' }
+        { message: "Expected import declaration of 'e' to be placed before 'G'." },
+        { message: "Expected import declaration of 'B' to be placed before 'C'." },
+        { message: "Expected import declaration of 'a' to be placed before 'B'." }
       ],
       options: [{ ignoreCase: true }]
     },
@@ -130,9 +125,9 @@ ruleTester.run('sort', rule, {
         import d from 'foo';
       `,
       errors: [
-        { message: "Expected import declaration of 'e' to be placed before 'G'.", type: 'ImportDeclaration' },
-        { message: "Expected import declaration of 'B' to be placed before 'C'.", type: 'ImportDeclaration' },
-        { message: "Expected import declaration of 'a' to be placed before 'B'.", type: 'ImportDeclaration' }
+        { message: "Expected import declaration of 'e' to be placed before 'G'." },
+        { message: "Expected import declaration of 'B' to be placed before 'C'." },
+        { message: "Expected import declaration of 'a' to be placed before 'B'." }
       ],
       options: [{ ignoreCase: true, unsafeAutofix: true }],
       output: `
@@ -152,8 +147,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ useOldSingleMemberSyntax: true }]
@@ -166,8 +160,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'multiple' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ unsafeAutofix: true, useOldSingleMemberSyntax: true }],
@@ -185,8 +178,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'a' to be placed before 'c'.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -199,8 +191,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'a' to be placed before 'c'.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -212,8 +203,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'a' to be placed before 'c'.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -225,8 +215,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'a' to be placed before 'c'.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }]
@@ -242,8 +231,7 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'a' to be placed before 'c'.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'a' to be placed before 'c'."
         }
       ],
       options: [{ unsafeAutofix: true }],
@@ -266,12 +254,10 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ allowSeparatedGroups: true }]
@@ -287,12 +273,10 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ allowSeparatedGroups: true, unsafeAutofix: true }],
@@ -334,32 +318,25 @@ ruleTester.run('sort', rule, {
       `,
       errors: [
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         },
         {
-          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax.",
-          type: 'ImportDeclaration'
+          message: "Expected import declaration of 'none' syntax to be placed before 'single' syntax."
         }
       ],
       options: [{ allowSeparatedGroups: true, unsafeAutofix: true }],
@@ -398,9 +375,9 @@ ruleTester.run('sort', rule, {
         import { y as z, z as y } from 'foo';
       `,
       errors: [
-        { message: "Member 'A' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'B' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'y' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' }
+        { message: "Member 'A' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'B' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'y' of the import declaration should be sorted alphabetically." }
       ],
       output: `
         import { A, a } from 'foo';
@@ -414,8 +391,8 @@ ruleTester.run('sort', rule, {
         import z, { b, B } from 'foo';
       `,
       errors: [
-        { message: "Member 'A' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'B' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' }
+        { message: "Member 'A' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'B' of the import declaration should be sorted alphabetically." }
       ],
       output: `
         import y, { A, a } from 'foo';
@@ -449,11 +426,11 @@ ruleTester.run('sort', rule, {
         } from 'foo';
       `,
       errors: [
-        { message: "Member 'A' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'B' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'C' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'D' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'E' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' }
+        { message: "Member 'A' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'B' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'C' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'D' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'E' of the import declaration should be sorted alphabetically." }
       ]
     },
     // Member sort order - `ignoreCase` option.
@@ -464,9 +441,9 @@ ruleTester.run('sort', rule, {
         import { D as e, e as D } from 'foo';
       `,
       errors: [
-        { message: "Member 'a' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'C' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' },
-        { message: "Member 'D' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' }
+        { message: "Member 'a' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'C' of the import declaration should be sorted alphabetically." },
+        { message: "Member 'D' of the import declaration should be sorted alphabetically." }
       ],
       options: [{ ignoreCase: true }],
       output: `
@@ -480,9 +457,7 @@ ruleTester.run('sort', rule, {
       code: `
         import { e as D, D as e } from 'foo';
       `,
-      errors: [
-        { message: "Member 'D' of the import declaration should be sorted alphabetically.", type: 'ImportSpecifier' }
-      ],
+      errors: [{ message: "Member 'D' of the import declaration should be sorted alphabetically." }],
       options: [{ useAliases: false }],
       output: `
         import { D as e, e as D } from 'foo';
