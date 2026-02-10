@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "commonjs",
+    "lib": ["ES2024"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmit": true,
+    "moduleResolution": "node"
+  },
+  "include": ["tests/types.test.ts", "lib/**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
