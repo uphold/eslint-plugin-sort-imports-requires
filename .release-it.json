@@ -17,5 +17,9 @@
       "echo \"$(npx @uphold/github-changelog-generator -f v${version})\n$(tail -n +2 CHANGELOG.md)\" > CHANGELOG.md",
       "git add CHANGELOG.md --all"
     ]
+  },
+  "npm": {
+    "publish": true,
+    "skipChecks": true
   }
 }
