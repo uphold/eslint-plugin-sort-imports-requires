@@ -1,15 +1,18 @@
+const { defineConfig } = require('eslint/config');
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
-const globals = require('globals');
 const js = require('@eslint/js');
-const sortImportsRequires = require('.');
+const sortImportsRequires = require('./lib/index.js');
 
-module.exports = [
+module.exports = defineConfig([
   js.configs.recommended,
-  eslintPluginPrettierRecommended,
   {
+    languageOptions: {
+      sourceType: 'commonjs'
+    },
     plugins: {
       'sort-imports-requires': sortImportsRequires
     },
+    name: 'eslint-plugin-sort-imports-requires/eslint-config',
     rules: {
       'prettier/prettier': [
         'error',
@@ -22,9 +25,7 @@ module.exports = [
       ],
       'sort-imports-requires/sort-imports': ['error', { unsafeAutofix: true }],
       'sort-imports-requires/sort-requires': ['error', { unsafeAutofix: true }]
-    },
-    languageOptions: {
-      globals: globals.node
     }
-  }
-];
+  },
+  eslintPluginPrettierRecommended
+]);
