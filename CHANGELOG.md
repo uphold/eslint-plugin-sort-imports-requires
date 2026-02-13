@@ -1,5 +1,9 @@
 # Changelog
 
+## [v2.1.0](https://github.com/uphold/eslint-plugin-sort-imports-requires/releases/tag/v2.1.0) (2026-02-13)
+
+- Add support for ESLint v10 and update all deps [\#17](https://github.com/uphold/eslint-plugin-sort-imports-requires/pull/17) ([risantos](https://github.com/risantos))
+
 ## [v2.0.0](https://github.com/uphold/eslint-plugin-sort-imports-requires/releases/tag/v2.0.0) (2024-10-16)
 - Upgrade to eslint v9 [\#15](https://github.com/uphold/eslint-plugin-sort-imports-requires/pull/15) ([satazor](https://github.com/satazor))
 - Add missing `repository` to package.json [\#9](https://github.com/uphold/eslint-plugin-sort-imports-requires/pull/9) ([satazor](https://github.com/satazor))
